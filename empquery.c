@@ -21,6 +21,18 @@
  */
 long get_salary(void *data, long id) {
     /* Your implementation should appear here */
+    while(*(char *)data != '\0'){
+        long given_id = *(long *)data;
+        data = data + sizeof(long);
+        for(int n = 0; n < 4; n++){
+            data = data + MAX_STRING_SIZE;
+        }
+        long sal = *(long *)data;
+        data = data + sizeof(long);
+        if(given_id == id){
+            return sal;
+        }
+    }
     return -1;
 }
 
